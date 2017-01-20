@@ -114,3 +114,6 @@ persist.timed.enable=true
 
 # WiFi
 wifi.interface=wlan0
+
+# OTA
+cm.updater.uri=https://visi0nary.de/api
