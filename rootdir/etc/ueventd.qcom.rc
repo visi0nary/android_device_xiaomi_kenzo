@@ -211,10 +211,10 @@
 /sys/devices/soc.0/78b5000.i2c/i2c-1/1-0045/leds/green		blink	0660	input	system
 /sys/devices/soc.0/78b5000.i2c/i2c-1/1-0045/leds/blue		blink	0660	input	system
 
-# fpc Fingerprint
-/sys/devices/soc.0/fpc_fpc1020*             hw_reset       0220   system     system
-/sys/devices/soc.0/fpc_fpc1020*             irq            0660   system     system
-/sys/devices/soc.0/fpc_fpc1020*             wakeup_enable  0220   system     system
+# Goodix Fingerprint
+/sys/devices/soc.0/goodix_fingerprint*             hw_reset       0220   system     system
+/sys/devices/soc.0/goodix_fingerprint*             irq            0660   system     system
+/sys/devices/soc.0/goodix_fingerprint*             wakeup_enable  0220   system     system
 
 # wlan
 /dev/wcnss_wlan           0660   system     system
