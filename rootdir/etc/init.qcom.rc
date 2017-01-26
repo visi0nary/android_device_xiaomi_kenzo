@@ -165,6 +165,9 @@ on fs
     mkdir /persist/data 0700 system system
     restorecon_recursive /persist
 
+    chown system system  /dev/goodix_fp
+    chmod 0644 /dev/goodix_fp
+
 on post-fs
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -285,6 +288,7 @@ on post-fs-data
 
     # Fingerprint
     mkdir /data/fpc 0700 system system
+    mkdir /data/goodix 0700 system system
 
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -599,3 +603,14 @@ service fingerprintd /system/bin/fingerprintd
     class late_start
     socket fpce stream 0666 system system
     user system
+
+service gx_fpd /system/bin/gx_fpd
+    class late_start
+    user root
+    group root system
+
+on property:persist.sys.fp.goodix=0
+    stop gx_fpd
+
+on property:persist.sys.fp.goodix=1
+    start gx_fpd
